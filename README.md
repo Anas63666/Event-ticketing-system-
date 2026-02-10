@@ -15,6 +15,10 @@ A modern, full-featured event management and ticketing platform built with React
 
 ### For Organizers
 - ✅ Comprehensive dashboard
+- ✅ Create new events with detailed form
+- ✅ Edit existing events
+- ✅ Delete events with confirmation
+- ✅ Auto-delete expired events (after event date)
 - ✅ View all events and attendees
 - ✅ Real-time ticket statistics
 - ✅ Validate tickets via QR code or manual entry
@@ -192,11 +196,21 @@ firebase deploy
 ### For Organizers
 1. Sign up with email and password (select "Organizer")
 2. Access the dashboard from the navbar
-3. Select an event from the sidebar
-4. View attendee statistics
-5. Search for specific attendees
-6. Validate tickets by entering ticket ID
-7. Track ticket status (valid/used)
+3. **Create Event**: Click "Create Event" button to add new events
+   - Fill in all event details
+   - Submit to create the event
+4. **Edit Event**: Click the edit icon (pencil) on any event in sidebar
+   - Modify event details
+   - Click "Update Event" to save changes
+5. **Delete Event**: Click the delete icon (trash) on any event
+   - Confirm deletion
+   - Event and all associated tickets will be removed
+6. **Auto-Delete**: Events are automatically deleted after their date passes
+7. Select an event from the sidebar to manage it
+8. View attendee statistics
+9. Search for specific attendees
+10. Validate tickets by entering ticket ID
+11. Track ticket status (valid/used)
 
 ## 🎯 Key Highlights
 

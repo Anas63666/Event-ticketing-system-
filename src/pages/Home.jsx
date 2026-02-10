@@ -19,9 +19,25 @@ const Home = () => {
 
   useEffect(() => {
     const storedEvents = localStorage.getItem('events');
-    if (storedEvents) {
-      setEvents(JSON.parse(storedEvents));
+    let loadedEvents = storedEvents ? JSON.parse(storedEvents) : initialEvents;
+    
+    // Auto-delete expired events (events where date has passed)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const activeEvents = loadedEvents.filter(event => {
+      const eventDate = new Date(event.date);
+      eventDate.setHours(0, 0, 0, 0);
+      return eventDate >= today;
+    });
+    
+    // If events were deleted, update localStorage
+    if (activeEvents.length !== loadedEvents.length) {
+      localStorage.setItem('events', JSON.stringify(activeEvents));
+      loadedEvents = activeEvents;
     }
+    
+    setEvents(loadedEvents);
   }, []);
 
   return (
