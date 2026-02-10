@@ -73,12 +73,18 @@ const Login = () => {
 
         <div className="auth-footer">
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+            (Attendees only - Organizers use demo account)
+          </p>
         </div>
 
         <div className="demo-credentials">
           <h4>Demo Credentials:</h4>
           <p><strong>Attendee:</strong> attendee@demo.com / password123</p>
           <p><strong>Organizer:</strong> organizer@demo.com / password123</p>
+          <p style={{ marginTop: '0.75rem', fontSize: '0.8125rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+            * Organizers cannot signup - use demo account or contact admin
+          </p>
         </div>
       </div>
     </div>

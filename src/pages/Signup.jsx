@@ -7,7 +7,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [role, setRole] = useState('attendee');
+  const [role] = useState('attendee'); // Only attendees can signup
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
@@ -87,14 +87,6 @@ const Signup = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label>Account Type</label>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="attendee">Attendee (Book Tickets)</option>
-              <option value="organizer">Organizer (Manage Events)</option>
-            </select>
-          </div>
-
           <button type="submit" disabled={loading} className="btn-submit">
             {loading ? 'Creating Account...' : 'Sign Up'}
           </button>
@@ -102,6 +94,9 @@ const Signup = () => {
 
         <div className="auth-footer">
           <p>Already have an account? <Link to="/login">Login</Link></p>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+            Note: Organizers should contact admin for account creation
+          </p>
         </div>
       </div>
     </div>
